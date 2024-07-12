@@ -1,0 +1,19 @@
+syntax = "proto3";
+
+package greet;
+
+option go_package = "/grpc-server-streaming";
+
+service GreetService {
+  // Server streaming RPC
+  rpc GreetManyTimes (GreetRequest) returns (stream GreetResponse);
+}
+
+
+message GreetRequest {
+  string name = 1;
+}
+
+message GreetResponse {
+  string message = 1;
+}
